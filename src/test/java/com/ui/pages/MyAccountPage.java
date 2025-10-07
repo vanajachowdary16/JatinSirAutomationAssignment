@@ -9,7 +9,6 @@ public class MyAccountPage extends BrowserUtility{
 	private static final By USERNAME_LOCATOR = By.xpath("//a[@title='View my customer account']/span");
 	public MyAccountPage(WebDriver driver) {
 		super(driver);
-		// TODO Auto-generated constructor stub
 	}
 	
 	public String getUserName() {

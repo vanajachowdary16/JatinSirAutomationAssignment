@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-10-08T03:15:16 IST" name="Default suite" finished-at="2025-10-08T03:15:26 IST" duration-ms="10214">
+    <groups>
+      <group name="sanity">
+        <method signature="LoginTest3.loginTest()[pri:0, instance:com.ui.test.LoginTest3@3023df74]" name="loginTest" class="com.ui.test.LoginTest3"/>
+      </group> <!-- sanity -->
+      <group name="e2e">
+        <method signature="LoginTest3.loginTest()[pri:0, instance:com.ui.test.LoginTest3@3023df74]" name="loginTest" class="com.ui.test.LoginTest3"/>
+      </group> <!-- e2e -->
+    </groups>
+    <test started-at="2025-10-08T03:15:16 IST" name="Default test" finished-at="2025-10-08T03:15:26 IST" duration-ms="10214">
+      <class name="com.ui.test.LoginTest3">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.ui.test.LoginTest3@3023df74]" started-at="2025-10-08T03:15:16 IST" name="setUp" description="load the homepage of the website" finished-at="2025-10-08T03:15:24 IST" duration-ms="7725" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="loginTest()[pri:0, instance:com.ui.test.LoginTest3@3023df74]" started-at="2025-10-08T03:15:24 IST" name="loginTest" description="verifies with the valid user is able to login into the application" finished-at="2025-10-08T03:15:26 IST" duration-ms="2444" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginTest -->
+      </class> <!-- com.ui.test.LoginTest3 -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
