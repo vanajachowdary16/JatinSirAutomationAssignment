@@ -3,12 +3,13 @@ package com.ui.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import com.constants.Browser;
 import com.utility.BrowserUtility;
 
 public class HomePage extends BrowserUtility{
 	
-	public HomePage(WebDriver driver) {
-		super(driver);
+	public HomePage(Browser browserName) {
+		super(browserName);
 		goToWebSite("http://www.automationpractice.pl/index.php");
 	}
 
