@@ -4,28 +4,39 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class BrowserUtility {
-	private WebDriver driver;
+public abstract class BrowserUtility {
+	private static WebDriver driver;
 
+	public static WebDriver getDriver() {
+		return driver;
+	}
+	public static void setDriver(WebDriver driver) {
+		BrowserUtility.driver = driver;
+	}
 	public BrowserUtility(WebDriver driver) {
 		super();
 		this.driver = driver;//Initialize the instance variable driver!!!
 	}
-	public void goToWebSite(String url) {
+	public static void goToWebSite(String url) {
 		driver.get(url);
 		
 	}
-	public void maximizeWindow() {
+	public static void maximizeWindow() {
 		driver.manage().window().maximize();
 	}
-	public void clickOn(By locator) {
+	public static void clickOn(By locator) {
 		WebElement element = driver.findElement(locator);
 		element.click();
 		
 	}
-	public void textToEnter(By locator, String text) {
+	public void enterText(By locator, String text) {
 		WebElement element = driver.findElement(locator);
 		element.sendKeys(text);
+		
+	}
+	public String getVisibleText(By locator) {
+		WebElement element = driver.findElement(locator);
+		return element.getText();
 		
 	}
 }
