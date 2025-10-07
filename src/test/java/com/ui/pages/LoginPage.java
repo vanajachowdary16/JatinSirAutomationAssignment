@@ -13,7 +13,6 @@ public class LoginPage extends BrowserUtility {
 
 	public LoginPage(WebDriver driver) {
 		super(driver);
-		// TODO Auto-generated constructor stub
 	}
 	
 	public MyAccountPage doLoginWith(String emailAddress, String password) {
