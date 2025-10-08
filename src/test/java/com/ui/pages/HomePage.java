@@ -10,7 +10,7 @@ public class HomePage extends BrowserUtility{
 	
 	public HomePage(Browser browserName) {
 		super(browserName);
-		goToWebSite(JsonUtility.readJson(QA));
+		goToWebSite(JsonUtility.readJson(QA).getUrl());
 	}
 
 	private static final By SIGN_IN_LOCATOR = By.className("login");
