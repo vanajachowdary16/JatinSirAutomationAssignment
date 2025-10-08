@@ -30,6 +30,7 @@ public abstract class BrowserUtility {
 			System.err.println("Invalid browser anme .... please select chrome or edge only");
 		}
 	}
+	//enum based constructor 
 	public BrowserUtility(Browser browserName) {
 		if(browserName==Browser.CHROME) {
 			driver= new ChromeDriver();

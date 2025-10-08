@@ -21,7 +21,7 @@ public class LoginTest {
 			, groups = {"e2e", "sanity"})
 	public void loginTest() {
 		
-		String userName = homepage.goToLoginPage().doLoginWith("xidic56063@aupvs.com", "Test@123").getUserName();
+		String userName = homepage.goToLoginPage().doLoginWith("", "").getUserName();
 
 		System.out.println(userName);
 		assertEquals(userName, "Test automation");
