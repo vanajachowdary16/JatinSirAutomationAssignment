@@ -3,11 +3,14 @@ package com.ui.test;
 import static com.constants.Browser.*;
 
 import static org.testng.Assert.*;
+
+import org.apache.logging.log4j.Logger;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.ui.pages.HomePage;
 import com.ui.pojo.User;
+import com.utility.loggerUtility;
 
 public class LoginTest {
 	
@@ -40,10 +43,11 @@ public class LoginTest {
 	@Test(description = "verifies with the valid user is able to login into the application"
 			, groups = {"e2e", "sanity"}, dataProviderClass  = com.dataproviders.LoginDataProvider.class, dataProvider = "LoginTestExcelDataProvider" )
 	public void loginExcelTest(User user) {
-		
+		Logger logger = loggerUtility.getLogger(this.getClass());
+		logger.info("LoginTest started");
 		String userName = homepage.goToLoginPage().doLoginWith(user.getEmailAddress(), user.getPassword()).getUserName();
-
 		System.out.println(userName);
 		assertEquals(userName, "Test automation");
+		logger.info("LoginTest completed");
 	}
 }
