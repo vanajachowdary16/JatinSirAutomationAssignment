@@ -1,65 +1,106 @@
 package com.utility;
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.apache.commons.io.FileUtils;
+import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 
 import com.constants.Browser;
 
-public abstract class BrowserUtility {
-	private static WebDriver driver;
 
-	public static WebDriver getDriver() {
-		return driver;
-	}
-	public static void setDriver(WebDriver driver) {
-		BrowserUtility.driver = driver;
-	}
-	public BrowserUtility(WebDriver driver) {
-		super();
-		this.driver = driver;//Initialize the instance variable driver!!!
-	}
-	public BrowserUtility(String browserName) {
-		if(browserName.equalsIgnoreCase("chrome")) {
-			driver= new ChromeDriver();
-		}else if(browserName.equalsIgnoreCase("edge")) {
-			driver= new EdgeDriver();
-		}else {
-			System.err.println("Invalid browser anme .... please select chrome or edge only");
-		}
-	}
-	//enum based constructor 
-	public BrowserUtility(Browser browserName) {
-		if(browserName==Browser.CHROME) {
-			driver= new ChromeDriver();
-		}else if(browserName == Browser.EDGE) {
-			driver= new EdgeDriver();
-		}else {
-			System.err.println("Invalid browser anme .... please select chrome or edge only");
-		}
-	}
-	public static void goToWebSite(String url) {
-		driver.get(url);
+public abstract class BrowserUtility {
+    // ThreadLocal to support parallel threads
+    private ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+     Logger logger = loggerUtility.getLogger(BrowserUtility.class);
+
+    // Return the actual WebDriver for the current thread
+    public WebDriver getDriver() {
+        return driver.get();
+    }
+
+    // Set the actual WebDriver for the current thread
+    @SuppressWarnings("unchecked")
+	public void setDriver(WebDriver driver) {
+        ((ThreadLocal<WebDriver>) driver).set(driver);
+    }
+
+    // Constructor when a WebDriver instance is provided
+    public BrowserUtility(WebDriver driver) {
+        super();
+        this.driver.set(driver);// Initialize the ThreadLocal value
+    }
+
+    // Constructor that initializes by browser name
+    public BrowserUtility(String browserName) {
+        logger.info("initializing the browser: " + browserName);
+        if (browserName.equalsIgnoreCase("chrome")) {
+            logger.info("initializing the chrome browser");
+            driver.set(new ChromeDriver());
+        } else if (browserName.equalsIgnoreCase("edge")) {
+            logger.info("initializing the edge browser");
+			driver.set(new EdgeDriver());
+        } else {
+            System.err.println("Invalid browser name .... please select chrome or edge only");
+        }
+    }
+
+    // enum-based constructor
+    public BrowserUtility(Browser browserName) {
+        if (browserName == Browser.CHROME) {
+            driver.set(new ChromeDriver());
+        } else if (browserName == Browser.EDGE) {
+            driver.set(new EdgeDriver());
+        } else {
+            System.err.println("Invalid browser name .... please select chrome or edge only");
+        }
+    }
+
+    public void goToWebSite(String url) {
+        logger.info("navigating to the website: " + url);
+        driver.get().get(url);
+    }
+
+    public void maximizeWindow() {
+        logger.info("maximizing the window");
+		driver.get().manage().window().maximize();
+    }
+
+    public void clickOn(By locator) {
+        logger.info("clicking on the element: " + locator);
+        WebElement element =  driver.get().findElement(locator);
+        element.click();
+    }
+
+    public void enterText(By locator, String text) {
+        logger.info("entering text: " + text + " into the element: " + locator);
+        WebElement element = driver.get().findElement(locator);
+        element.sendKeys(text);
+    }
+
+    public String getVisibleText(By locator) {
+        logger.info("getting the visible text from the element: " + locator);
+        WebElement element =  driver.get().findElement(locator);
+        return element.getText();
+    }
+
+    public String takeScreenshot(String name) { 
 		
-	}
-	public static void maximizeWindow() {
-		driver.manage().window().maximize();
-	}
-	public static void clickOn(By locator) {
-		WebElement element = driver.findElement(locator);
-		element.click();
-		
-	}
-	public void enterText(By locator, String text) {
-		WebElement element = driver.findElement(locator);
-		element.sendKeys(text);
-		
-	}
-	public String getVisibleText(By locator) {
-		WebElement element = driver.findElement(locator);
-		return element.getText();
-		
+	TakesScreenshot screenshot = (TakesScreenshot) driver.get(); 
+
+	Date date= new Date();
+	SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH-mm-ss");
+    String timeStamp=simpleDateFormat.format(date);
+	String filePath=System.getProperty("user.dir")+"/screenshots/"+name +"-"+ timeStamp+ "png";
+	File screenShotData =screenshot.getScreenshotAs(OutputType.FILE); 
+	File screenshotFile = new File(filePath);
+	 try { FileUtils.copyFile(screenShotData, screenshotFile); 
+	} catch (IOException e) { // TODO Auto-generated catch block e.printStackTrace(); } return filePath; }  
+}
+	 return filePath;
 	}
 }

@@ -3,7 +3,6 @@ package com.dataproviders;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -11,7 +10,6 @@ import java.util.List;
 import org.testng.annotations.DataProvider;
 
 import com.google.gson.Gson;
-import com.opencsv.CSVReader;
 import com.ui.pojo.TestData;
 import com.ui.pojo.User;
 import com.utility.CSVReaderUtility;
