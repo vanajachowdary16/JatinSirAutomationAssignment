@@ -1,91 +1,15 @@
-2025-10-28 15:04:39 [main] INFO  com.ui.listeners.TestListener::onStart::29 - test suite started
-2025-10-28 15:04:40 [TestNG-test=ui-automation-1] INFO  com.ui.test.LoginTest::setup::37 - Load the Homepage of the website
-2025-10-28 15:04:40 [TestNG-test=ui-automation-3] INFO  com.ui.test.LoginTest::setup::37 - Load the Homepage of the website
-2025-10-28 15:04:40 [TestNG-test=ui-automation-1] INFO  com.utility.BrowserUtility::<init>::92 - initializing the chrome browser
-2025-10-28 15:04:40 [TestNG-test=ui-automation-3] INFO  com.utility.BrowserUtility::<init>::92 - initializing the chrome browser
-2025-10-28 15:04:42 [TestNG-test=ui-automation-2] INFO  com.ui.test.LoginTest::setup::37 - Load the Homepage of the website
-2025-10-28 15:04:42 [TestNG-test=ui-automation-2] INFO  com.utility.BrowserUtility::<init>::92 - initializing the chrome browser
-2025-10-28 15:04:49 [TestNG-test=ui-automation-1] INFO  com.utility.BrowserUtility::goToWebSite::116 - navigating to the website: http://www.automationpractice.pl/index.php
-2025-10-28 15:04:49 [TestNG-test=ui-automation-2] INFO  com.utility.BrowserUtility::goToWebSite::116 - navigating to the website: http://www.automationpractice.pl/index.php
-2025-10-28 15:04:49 [TestNG-test=ui-automation-3] INFO  com.utility.BrowserUtility::goToWebSite::116 - navigating to the website: http://www.automationpractice.pl/index.php
-2025-10-28 15:04:50 [TestNG-test=ui-automation-2] INFO  com.ui.listeners.TestListener::onTestStart::35 - loginExcelTest
-2025-10-28 15:04:50 [TestNG-test=ui-automation-2] INFO  com.ui.listeners.TestListener::onTestStart::36 - verifies with the valid user is able to login into the application
-2025-10-28 15:04:50 [TestNG-test=ui-automation-2] INFO  com.ui.listeners.TestListener::onTestStart::37 - [e2e, sanity]
-2025-10-28 15:04:50 [TestNG-test=ui-automation-2] INFO  com.ui.pages.HomePage::goToLoginPage::31 - Trying to performing click to go to Sign in Page
-2025-10-28 15:04:50 [TestNG-test=ui-automation-2] INFO  com.utility.BrowserUtility::clickOn::126 - clicking on the element: By.xpath: //a[contains(text(),"Sign")]
-2025-10-28 15:04:51 [TestNG-test=ui-automation-1] INFO  com.ui.listeners.TestListener::onTestStart::35 - loginCSVTest
-2025-10-28 15:04:51 [TestNG-test=ui-automation-1] INFO  com.ui.listeners.TestListener::onTestStart::36 - verifies with the valid user is able to login into the application
-2025-10-28 15:04:51 [TestNG-test=ui-automation-1] INFO  com.ui.listeners.TestListener::onTestStart::37 - [e2e, sanity]
-2025-10-28 15:04:51 [TestNG-test=ui-automation-1] INFO  com.ui.pages.HomePage::goToLoginPage::31 - Trying to performing click to go to Sign in Page
-2025-10-28 15:04:51 [TestNG-test=ui-automation-1] INFO  com.utility.BrowserUtility::clickOn::126 - clicking on the element: By.xpath: //a[contains(text(),"Sign")]
-2025-10-28 15:04:54 [TestNG-test=ui-automation-3] INFO  com.ui.listeners.TestListener::onTestStart::35 - loginTest
-2025-10-28 15:04:54 [TestNG-test=ui-automation-3] INFO  com.ui.listeners.TestListener::onTestStart::36 - verifies with the valid user is able to login into the application
-2025-10-28 15:04:54 [TestNG-test=ui-automation-3] INFO  com.ui.listeners.TestListener::onTestStart::37 - [e2e, sanity]
-2025-10-28 15:04:54 [TestNG-test=ui-automation-3] INFO  com.ui.pages.HomePage::goToLoginPage::31 - Trying to performing click to go to Sign in Page
-2025-10-28 15:04:54 [TestNG-test=ui-automation-3] INFO  com.utility.BrowserUtility::clickOn::126 - clicking on the element: By.xpath: //a[contains(text(),"Sign")]
-2025-10-28 15:04:57 [TestNG-test=ui-automation-1] INFO  com.utility.BrowserUtility::enterText::132 - entering text: xidic56063@aupvs.com into the element: By.id: email
-2025-10-28 15:04:57 [TestNG-test=ui-automation-2] INFO  com.utility.BrowserUtility::enterText::132 - entering text: xidic56063@aupvs.com into the element: By.id: email
-2025-10-28 15:04:57 [TestNG-test=ui-automation-3] INFO  com.utility.BrowserUtility::enterText::132 - entering text: xidic56063@aupvs.com into the element: By.id: email
-2025-10-28 15:04:57 [TestNG-test=ui-automation-1] INFO  com.utility.BrowserUtility::enterText::132 - entering text: Test@123 into the element: By.id: passwd
-2025-10-28 15:04:57 [TestNG-test=ui-automation-2] INFO  com.utility.BrowserUtility::enterText::132 - entering text: Test@123 into the element: By.id: passwd
-2025-10-28 15:04:57 [TestNG-test=ui-automation-3] INFO  com.utility.BrowserUtility::enterText::132 - entering text: Test@123 into the element: By.id: passwd
-2025-10-28 15:04:57 [TestNG-test=ui-automation-1] INFO  com.utility.BrowserUtility::clickOn::126 - clicking on the element: By.id: SubmitLogin
-2025-10-28 15:04:57 [TestNG-test=ui-automation-2] INFO  com.utility.BrowserUtility::clickOn::126 - clicking on the element: By.id: SubmitLogin
-2025-10-28 15:04:57 [TestNG-test=ui-automation-3] INFO  com.utility.BrowserUtility::clickOn::126 - clicking on the element: By.id: SubmitLogin
-2025-10-28 15:04:59 [TestNG-test=ui-automation-2] INFO  com.utility.BrowserUtility::getVisibleText::138 - getting the visible text from the element: By.xpath: //a[@title='View my customer account']/span
-2025-10-28 15:04:59 [TestNG-test=ui-automation-3] INFO  com.utility.BrowserUtility::getVisibleText::138 - getting the visible text from the element: By.xpath: //a[@title='View my customer account']/span
-2025-10-28 15:05:00 [TestNG-test=ui-automation-2] INFO  com.ui.listeners.TestListener::onTestSuccess::44 - loginExcelTest passed
-2025-10-28 15:05:00 [TestNG-test=ui-automation-3] INFO  com.ui.listeners.TestListener::onTestSuccess::44 - loginTest passed
-2025-10-28 15:05:00 [TestNG-test=ui-automation-3] INFO  com.ui.test.LoginTest::setup::37 - Load the Homepage of the website
-2025-10-28 15:05:00 [TestNG-test=ui-automation-3] INFO  com.utility.BrowserUtility::<init>::92 - initializing the chrome browser
-2025-10-28 15:05:00 [TestNG-test=ui-automation-1] INFO  com.utility.BrowserUtility::getVisibleText::138 - getting the visible text from the element: By.xpath: //a[@title='View my customer account']/span
-2025-10-28 15:05:00 [TestNG-test=ui-automation-1] INFO  com.ui.listeners.TestListener::onTestSuccess::44 - loginCSVTest passed
-2025-10-28 15:05:00 [TestNG-test=ui-automation-1] INFO  com.ui.test.LoginTest::setup::37 - Load the Homepage of the website
-2025-10-28 15:05:00 [TestNG-test=ui-automation-1] INFO  com.utility.BrowserUtility::<init>::92 - initializing the chrome browser
-2025-10-28 15:05:02 [TestNG-test=ui-automation-1] INFO  com.utility.BrowserUtility::goToWebSite::116 - navigating to the website: http://www.automationpractice.pl/index.php
-2025-10-28 15:05:02 [TestNG-test=ui-automation-3] INFO  com.utility.BrowserUtility::goToWebSite::116 - navigating to the website: http://www.automationpractice.pl/index.php
-2025-10-28 15:05:04 [TestNG-test=ui-automation-1] INFO  com.ui.listeners.TestListener::onTestStart::35 - loginCSVTest
-2025-10-28 15:05:04 [TestNG-test=ui-automation-1] INFO  com.ui.listeners.TestListener::onTestStart::36 - verifies with the valid user is able to login into the application
-2025-10-28 15:05:04 [TestNG-test=ui-automation-1] INFO  com.ui.listeners.TestListener::onTestStart::37 - [e2e, sanity]
-2025-10-28 15:05:04 [TestNG-test=ui-automation-1] INFO  com.ui.pages.HomePage::goToLoginPage::31 - Trying to performing click to go to Sign in Page
-2025-10-28 15:05:04 [TestNG-test=ui-automation-1] INFO  com.utility.BrowserUtility::clickOn::126 - clicking on the element: By.xpath: //a[contains(text(),"Sign")]
-2025-10-28 15:05:08 [TestNG-test=ui-automation-3] INFO  com.ui.listeners.TestListener::onTestStart::35 - loginTest
-2025-10-28 15:05:08 [TestNG-test=ui-automation-3] INFO  com.ui.listeners.TestListener::onTestStart::36 - verifies with the valid user is able to login into the application
-2025-10-28 15:05:08 [TestNG-test=ui-automation-3] INFO  com.ui.listeners.TestListener::onTestStart::37 - [e2e, sanity]
-2025-10-28 15:05:08 [TestNG-test=ui-automation-3] INFO  com.ui.pages.HomePage::goToLoginPage::31 - Trying to performing click to go to Sign in Page
-2025-10-28 15:05:08 [TestNG-test=ui-automation-3] INFO  com.utility.BrowserUtility::clickOn::126 - clicking on the element: By.xpath: //a[contains(text(),"Sign")]
-2025-10-28 15:05:09 [TestNG-test=ui-automation-1] INFO  com.utility.BrowserUtility::enterText::132 - entering text: testautomation@test.com into the element: By.id: email
-2025-10-28 15:05:09 [TestNG-test=ui-automation-1] INFO  com.utility.BrowserUtility::enterText::132 - entering text: Test@123 into the element: By.id: passwd
-2025-10-28 15:05:10 [TestNG-test=ui-automation-1] INFO  com.utility.BrowserUtility::clickOn::126 - clicking on the element: By.id: SubmitLogin
-2025-10-28 15:05:10 [TestNG-test=ui-automation-3] INFO  com.utility.BrowserUtility::enterText::132 - entering text: testautomation@test.com into the element: By.id: email
-2025-10-28 15:05:10 [TestNG-test=ui-automation-3] INFO  com.utility.BrowserUtility::enterText::132 - entering text: Test@123 into the element: By.id: passwd
-2025-10-28 15:05:11 [TestNG-test=ui-automation-1] INFO  com.utility.BrowserUtility::getVisibleText::138 - getting the visible text from the element: By.xpath: //a[@title='View my customer account']/span
-2025-10-28 15:05:11 [TestNG-test=ui-automation-3] INFO  com.utility.BrowserUtility::clickOn::126 - clicking on the element: By.id: SubmitLogin
-2025-10-28 15:05:11 [TestNG-test=ui-automation-1] ERROR com.ui.listeners.TestListener::onTestFailure::50 - loginCSVTest failed
-2025-10-28 15:05:11 [TestNG-test=ui-automation-1] ERROR com.ui.listeners.TestListener::onTestFailure::51 - no such element: Unable to locate element: {"method":"xpath","selector":"//a[@title='View my customer account']/span"}
-  (Session info: chrome=141.0.7390.123)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
-Build info: version: '4.36.0', revision: '6d115cfd87'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.7'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [bada1492b32b8f36c590c45af8b73667, findElement {using=xpath, value=//a[@title='View my customer account']/span}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.123, chrome: {chromedriverVersion: 141.0.7390.122 (b477534e7e1..., userDataDir: C:\Users\godug\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56876}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56876/devtoo..., se:cdpVersion: 141.0.7390.123, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: bada1492b32b8f36c590c45af8b73667
-2025-10-28 15:05:11 [TestNG-test=ui-automation-1] INFO  com.ui.listeners.TestListener::onTestFailure::56 - capturing screenshot for the failed test script
-2025-10-28 15:05:11 [TestNG-test=ui-automation-1] ERROR com.ui.listeners.TestListener::onTestFailure::50 - loginCSVTest failed
-2025-10-28 15:05:11 [TestNG-test=ui-automation-1] ERROR com.ui.listeners.TestListener::onTestFailure::51 - Cannot invoke "org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)" because "screenshot" is null
-2025-10-28 15:05:11 [TestNG-test=ui-automation-1] INFO  com.ui.listeners.TestListener::onTestFailure::56 - capturing screenshot for the failed test script
-2025-10-28 15:05:12 [TestNG-test=ui-automation-3] INFO  com.utility.BrowserUtility::getVisibleText::138 - getting the visible text from the element: By.xpath: //a[@title='View my customer account']/span
-2025-10-28 15:05:12 [TestNG-test=ui-automation-3] ERROR com.ui.listeners.TestListener::onTestFailure::50 - loginTest failed
-2025-10-28 15:05:12 [TestNG-test=ui-automation-3] ERROR com.ui.listeners.TestListener::onTestFailure::51 - no such element: Unable to locate element: {"method":"xpath","selector":"//a[@title='View my customer account']/span"}
-  (Session info: chrome=141.0.7390.123)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
-Build info: version: '4.36.0', revision: '6d115cfd87'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.7'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [a19aad16b62c7f958fd5fb8bf2f8ff09, findElement {using=xpath, value=//a[@title='View my customer account']/span}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.123, chrome: {chromedriverVersion: 141.0.7390.122 (b477534e7e1..., userDataDir: C:\Users\godug\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56875}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56875/devtoo..., se:cdpVersion: 141.0.7390.123, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: a19aad16b62c7f958fd5fb8bf2f8ff09
-2025-10-28 15:05:12 [TestNG-test=ui-automation-3] INFO  com.ui.listeners.TestListener::onTestFailure::56 - capturing screenshot for the failed test script
-2025-10-28 15:05:12 [TestNG-test=ui-automation-3] INFO  com.ui.listeners.TestListener::onTestFailure::58 - attaching screenshot to the html file
-2025-10-28 15:05:12 [main] INFO  com.ui.listeners.TestListener::onFinish::70 - test suite completed
+2025-10-28 19:18:25 [main] INFO  com.ui.listeners.TestListener::onStart::29 - test suite started
+2025-10-28 19:18:27 [TestNG-test=ui-automation-1] INFO  com.ui.test.LoginTest::setup::37 - Load the Homepage of the website
+2025-10-28 19:18:27 [TestNG-test=ui-automation-1] INFO  com.utility.BrowserUtility::<init>::92 - initializing the chrome browser
+2025-10-28 19:18:30 [TestNG-test=ui-automation-1] INFO  com.utility.BrowserUtility::goToWebSite::116 - navigating to the website: http://www.automationpractice.pl/index.php
+2025-10-28 19:18:35 [TestNG-test=ui-automation-1] INFO  com.ui.listeners.TestListener::onTestStart::35 - loginExcelTest
+2025-10-28 19:18:35 [TestNG-test=ui-automation-1] INFO  com.ui.listeners.TestListener::onTestStart::36 - verifies with the valid user is able to login into the application
+2025-10-28 19:18:35 [TestNG-test=ui-automation-1] INFO  com.ui.listeners.TestListener::onTestStart::37 - [e2e, sanity]
+2025-10-28 19:18:35 [TestNG-test=ui-automation-1] INFO  com.ui.pages.HomePage::goToLoginPage::31 - Trying to performing click to go to Sign in Page
+2025-10-28 19:18:35 [TestNG-test=ui-automation-1] INFO  com.utility.BrowserUtility::clickOn::126 - clicking on the element: By.xpath: //a[contains(text(),"Sign")]
+2025-10-28 19:18:36 [TestNG-test=ui-automation-1] INFO  com.utility.BrowserUtility::enterText::132 - entering text: xidic56063@aupvs.com into the element: By.id: email
+2025-10-28 19:18:36 [TestNG-test=ui-automation-1] INFO  com.utility.BrowserUtility::enterText::132 - entering text: Test@123 into the element: By.id: passwd
+2025-10-28 19:18:36 [TestNG-test=ui-automation-1] INFO  com.utility.BrowserUtility::clickOn::126 - clicking on the element: By.id: SubmitLogin
+2025-10-28 19:18:38 [TestNG-test=ui-automation-1] INFO  com.utility.BrowserUtility::getVisibleText::138 - getting the visible text from the element: By.xpath: //a[@title='View my customer account']/span
+2025-10-28 19:18:38 [TestNG-test=ui-automation-1] INFO  com.ui.listeners.TestListener::onTestSuccess::44 - loginExcelTest passed
+2025-10-28 19:18:38 [main] INFO  com.ui.listeners.TestListener::onFinish::70 - test suite completed

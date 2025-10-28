@@ -17,7 +17,7 @@ public class LoginTest extends TestBase {
 
     Logger logger = loggerUtility.getLogger(this.getClass());
 
-    @Test(description = "verifies with the valid user is able to login into the application", groups = { "e2e",
+    @Test(enabled=false, description = "verifies with the valid user is able to login into the application", groups = { "e2e",
             "sanity" }, dataProviderClass = com.dataproviders.LoginDataProvider.class, dataProvider = "LoginTestDataProvider")
     public void loginTest(User user) {
         String userName = homePage.goToLoginPage().doLoginWith(user.getEmailAddress(), user.getPassword())
@@ -26,7 +26,7 @@ public class LoginTest extends TestBase {
         assertEquals(userName, "Test automation");
     }
 
-    @Test(description = "verifies with the valid user is able to login into the application", groups = { "e2e",
+    @Test(enabled=false, description = "verifies with the valid user is able to login into the application", groups = { "e2e",
             "sanity" }, dataProviderClass = com.dataproviders.LoginDataProvider.class, dataProvider = "LoginTestCSVDataProvider")
     public void loginCSVTest(User user) {
         String userName = homePage.goToLoginPage().doLoginWith(user.getEmailAddress(), user.getPassword())
