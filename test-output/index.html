@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-automation_assignment" class="navigator-link">
-              <span class="suite-name border-failed">automation-assignment</span>
+              <span class="suite-name border-passed">automation-assignment</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -91,21 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">4 methods, 1 failed,   3 passed</span>
-                  </li>
-                  <li>
-                    <span class="method-list-title failed">Failed methods</span>
-                    <span class="show-or-hide-methods failed">
-                      <a href="#" panel-name="suite-automation_assignment" class="hide-methods failed suite-automation_assignment"> (hide)</a> <!-- hide-methods failed suite-automation_assignment -->
-                      <a href="#" panel-name="suite-automation_assignment" class="show-methods failed suite-automation_assignment"> (show)</a> <!-- show-methods failed suite-automation_assignment -->
-                    </span>
-                    <div class="method-list-content failed suite-automation_assignment">
-                      <span>
-                        <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-automation_assignment" title="com.ui.test.LoginTest" class="method navigator-link" hash-for-method="loginTest(User [emailAddress=testautomation@test.com, password=Test@123])">loginTest(User [emailAddress=testautomation@test.com, password=Test@123])</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content failed suite-automation_assignment -->
+                    <span class="method-stats">1 method,   1 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -116,17 +102,7 @@
                     <div class="method-list-content passed suite-automation_assignment">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-automation_assignment" title="com.ui.test.LoginTest" class="method navigator-link" hash-for-method="loginCSVTest(User [emailAddress=xidic56063@aupvs.com, password=Test@123])">loginCSVTest(User [emailAddress=xidic56063@aupvs.com, password=Test@123])</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-automation_assignment" title="com.ui.test.LoginTest" class="method navigator-link" hash-for-method="loginExcelTest(User [emailAddress=xidic56063@aupvs.com, password=Test@123])">loginExcelTest(User [emailAddress=xidic56063@aupvs.com, password=Test@123])</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-automation_assignment" title="com.ui.test.LoginTest" class="method navigator-link" hash-for-method="loginTest(User [emailAddress=xidic56063@aupvs.com, password=Test@123])">loginTest(User [emailAddress=xidic56063@aupvs.com, password=Test@123])</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-automation_assignment -->
@@ -141,52 +117,6 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-automation_assignment" class="panel automation_assignment">
-          <div class="suite-automation_assignment-class-failed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="failed.png"/>
-              <span class="class-name">com.ui.test.LoginTest</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="loginTest(User [emailAddress=testautomation@test.com, password=Test@123])">
-                  </a> <!-- loginTest(User [emailAddress=testautomation@test.com, password=Test@123]) -->
-                  <span class="method-name">loginTest</span>
-                  <span class="parameters">(User [emailAddress=testautomation@test.com, password=Test@123])</span>
-                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//a[@title=&apos;View my customer account&apos;]/span&quot;}
-  (Session info: chrome=141.0.7390.123)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
-Build info: version: &apos;4.36.0&apos;, revision: &apos;6d115cfd87&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.7&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [a19aad16b62c7f958fd5fb8bf2f8ff09, findElement {using=xpath, value=//a[@title=&apos;View my customer account&apos;]/span}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.123, chrome: {chromedriverVersion: 141.0.7390.122 (b477534e7e1..., userDataDir: C:\Users\godug\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56875}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56875/devtoo..., se:cdpVersion: 141.0.7390.123, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: a19aad16b62c7f958fd5fb8bf2f8ff09
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
-	at com.utility.BrowserUtility.getVisibleText(BrowserUtility.java:139)
-	at com.ui.pages.MyAccountPage.getUserName(MyAccountPage.java:15)
-	at com.ui.test.LoginTest.loginTest(LoginTest.java:24)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-... Removed 13 stack frames
-</div> <!-- stack-trace -->
-                  <em>
-(verifies with the valid user is able to login into the application)                  </em>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-automation_assignment-class-failed -->
           <div class="suite-automation_assignment-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -195,29 +125,9 @@ Session ID: a19aad16b62c7f958fd5fb8bf2f8ff09
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="loginCSVTest(User [emailAddress=xidic56063@aupvs.com, password=Test@123])">
-                  </a> <!-- loginCSVTest(User [emailAddress=xidic56063@aupvs.com, password=Test@123]) -->
-                  <span class="method-name">loginCSVTest</span>
-                  <span class="parameters">(User [emailAddress=xidic56063@aupvs.com, password=Test@123])</span>
-                  <em>
-(verifies with the valid user is able to login into the application)                  </em>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
                   <a name="loginExcelTest(User [emailAddress=xidic56063@aupvs.com, password=Test@123])">
                   </a> <!-- loginExcelTest(User [emailAddress=xidic56063@aupvs.com, password=Test@123]) -->
                   <span class="method-name">loginExcelTest</span>
-                  <span class="parameters">(User [emailAddress=xidic56063@aupvs.com, password=Test@123])</span>
-                  <em>
-(verifies with the valid user is able to login into the application)                  </em>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="loginTest(User [emailAddress=xidic56063@aupvs.com, password=Test@123])">
-                  </a> <!-- loginTest(User [emailAddress=xidic56063@aupvs.com, password=Test@123]) -->
-                  <span class="method-name">loginTest</span>
                   <span class="parameters">(User [emailAddress=xidic56063@aupvs.com, password=Test@123])</span>
                   <em>
 (verifies with the valid user is able to login into the application)                  </em>
@@ -268,15 +178,7 @@ Session ID: a19aad16b62c7f958fd5fb8bf2f8ff09
               <span class="test-group-name">e2e</span>
               <br/>
               <div class="method-in-group">
-                <span class="method-in-group-name">loginCSVTest</span>
-                <br/>
-              </div> <!-- method-in-group -->
-              <div class="method-in-group">
                 <span class="method-in-group-name">loginExcelTest</span>
-                <br/>
-              </div> <!-- method-in-group -->
-              <div class="method-in-group">
-                <span class="method-in-group-name">loginTest</span>
                 <br/>
               </div> <!-- method-in-group -->
             </div> <!-- test-group -->
@@ -284,15 +186,7 @@ Session ID: a19aad16b62c7f958fd5fb8bf2f8ff09
               <span class="test-group-name">sanity</span>
               <br/>
               <div class="method-in-group">
-                <span class="method-in-group-name">loginCSVTest</span>
-                <br/>
-              </div> <!-- method-in-group -->
-              <div class="method-in-group">
                 <span class="method-in-group-name">loginExcelTest</span>
-                <br/>
-              </div> <!-- method-in-group -->
-              <div class="method-in-group">
-                <span class="method-in-group-name">loginTest</span>
                 <br/>
               </div> <!-- method-in-group -->
             </div> <!-- test-group -->
@@ -312,28 +206,16 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(4);
+data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'loginExcelTest')
 data.setCell(0, 2, 'com.ui.test.LoginTest')
-data.setCell(0, 3, 9074);
-data.setCell(1, 0, 1)
-data.setCell(1, 1, 'loginCSVTest')
-data.setCell(1, 2, 'com.ui.test.LoginTest')
-data.setCell(1, 3, 8774);
-data.setCell(2, 0, 2)
-data.setCell(2, 1, 'loginTest')
-data.setCell(2, 2, 'com.ui.test.LoginTest')
-data.setCell(2, 3, 5348);
-data.setCell(3, 0, 3)
-data.setCell(3, 1, 'loginTest')
-data.setCell(3, 2, 'com.ui.test.LoginTest')
-data.setCell(3, 3, 3625);
+data.setCell(0, 3, 2793);
 window.suiteTableData['automation_assignment']= { tableData: data, tableDiv: 'times-div-automation_assignment'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 26 seconds</span>
+              <span class="suite-total-time">Total running time: 2 seconds</span>
               <div id="times-div-automation_assignment">
               </div> <!-- times-div-automation_assignment -->
             </div> <!-- times-div -->
@@ -348,9 +230,18 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-automation_assignment" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">2 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">com.ui.test.LoginTest</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">loginCSVTest</span>
+                <br/>
+                <span class="ignored-method-name">loginTest</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-automation_assignment" class="panel">
@@ -361,64 +252,16 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">com.ui.test.LoginTest</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
-                <span class="method-name">setup(chrome, false, true, [TestResult name={null} status=CREATED method=LoginTest.loginCSVTest(com.ui.poj...)</span>
-                <span class="method-start">0 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="configuration-method before">
-                <span class="method-name">setup(chrome, false, true, [TestResult name={null} status=CREATED method=LoginTest.loginTest(com.ui.pojo.U...)</span>
-                <span class="method-start">73 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="configuration-method before">
                 <span class="method-name">setup(chrome, false, true, [TestResult name={null} status=CREATED method=LoginTest.loginExcelTest(com.ui.p...)</span>
-                <span class="method-start">1402 ms</span>
+                <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">loginExcelTest(User [emailAddress=xidic56063@aupvs.com, password=Test@123])</span>
-                <span class="method-start">10291 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">loginCSVTest(User [emailAddress=xidic56063@aupvs.com, password=Test@123])</span>
-                <span class="method-start">10787 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">loginTest(User [emailAddress=xidic56063@aupvs.com, password=Test@123])</span>
-                <span class="method-start">14126 ms</span>
+                <span class="method-start">7666 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">19405 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-method after">
-                <span class="method-name">tearDown</span>
-                <span class="method-start">19478 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-method before">
-                <span class="method-name">setup(chrome, false, true, [TestResult name={null} status=CREATED method=LoginTest.loginTest(com.ui.pojo.U...)</span>
-                <span class="method-start">19479 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="configuration-method after">
-                <span class="method-name">tearDown</span>
-                <span class="method-start">19569 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-method before">
-                <span class="method-name">setup(chrome, false, true, [TestResult name={null} status=CREATED method=LoginTest.loginCSVTest(com.ui.poj...)</span>
-                <span class="method-start">19570 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <img src="failed.png">
-                </img>
-                <span class="method-name">loginCSVTest(User [emailAddress=testautomation@test.com, password=Test@123])</span>
-                <span class="method-start">23703 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <img src="failed.png">
-                </img>
-                <span class="method-name">loginTest(User [emailAddress=testautomation@test.com, password=Test@123])</span>
-                <span class="method-start">28001 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">tearDown</span>
-                <span class="method-start">31895 ms</span>
+                <span class="method-start">10466 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
