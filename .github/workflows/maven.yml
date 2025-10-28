@@ -2,7 +2,7 @@ name: Test automation workflow
 
 on:
   schedule:
-    - cron: '0 18 * * *'        # runs daily at 18:00 UTC (adjust if you meant local time)
+    - cron: '0 18 * * *'  # runs daily at 18:00 UTC
   push:
     branches: [ "main" ]
   pull_request:
@@ -50,13 +50,27 @@ jobs:
         with:
           name: extent-report
           path: results/extent-report.htm
-          
+
+      - name: Copy report to gh-pages folder
+        if: always()
+        run: |
+          mkdir -p public/extent-reports/
+          cp -R results/extent-report.htm public/extent-reports/
+          cp -R screenshots public/extent-reports/screenshots
+
+      - name: Upload copied report artifact
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: gh-pages-report
+          path: public/extent-reports/
+
       - name: Deploy
         if: always()
         uses: JamesIves/github-pages-deploy-action@v4.7.3
         with:
           folder: public/extent-reports/
-          token: ${{secrets.PAT}}
+          token: ${{ secrets.PAT }}
           clean: true
 
       - name: Test execution status
