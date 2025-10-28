@@ -55,14 +55,14 @@ jobs:
         uses: actions/upload-artifact@v5
         with:
           name: extent-report
-          path: results/extent-report.htm
+          path: results/extent-report.html
 
       - name: Copy report to gh-pages folder
         if: always()
         run: |
           mkdir -p public/extent-reports/
           # copy the generated report and screenshots if they exist
-          if [ -f "results/extent-report.htm" ]; then
+          if [ -f "results/extent-report.html" ]; then
             cp results/extent-report.htm public/extent-reports/
           else
             echo "No results/extent-report.htm found"
