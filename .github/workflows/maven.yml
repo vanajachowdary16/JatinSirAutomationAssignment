@@ -37,12 +37,27 @@ jobs:
           name: test-logs
           path: logs/
 
+      - name: Upload Screenshots as artifacts
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: screenshots
+          path: screenshots/
+          
       - name: Upload test report
         if: always()
         uses: actions/upload-artifact@v5
         with:
           name: extent-report
-          path: results/extent-report.html
+          path: results/extent-report.htm
+          
+      - name: Deploy
+        if: always()
+        uses: JamesIves/github-pages-deploy-action@v4.7.3
+        with:
+          folder: public/extent-reports/
+          token: ${{secrets.PAT}}
+          clean: true
 
       - name: Test execution status
         run: echo "Test execution completed"
