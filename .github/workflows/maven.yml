@@ -63,7 +63,7 @@ jobs:
           mkdir -p public/extent-reports/
           # copy the generated report and screenshots if they exist
           if [ -f "results/extent-report.html" ]; then
-            cp results/extent-report.htm public/extent-reports/
+            cp results/extent-report.html public/extent-reports/
           else
             echo "No results/extent-report.htm found"
           fi
