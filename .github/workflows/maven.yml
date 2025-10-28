@@ -1,12 +1,18 @@
 name: Test automation workflow
 
+# Give the workflow the permissions required to create/modify branches and Pages
+permissions:
+  contents: write   # needed to create/update gh-pages branch
+  pages: write      # needed to publish GitHub Pages (if relevant)
+  id-token: write   # useful for some auth flows (optional)
+
 on:
   schedule:
     - cron: '0 18 * * *'  # runs daily at 18:00 UTC
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   build:
@@ -15,6 +21,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        # persist-credentials is true by default; ensures actions can use GITHUB_TOKEN
 
       - name: Set up JDK 17
         uses: actions/setup-java@v4
@@ -26,7 +33,6 @@ jobs:
       - name: Build with Maven
         run: mvn test -X
 
-      # Optional: Uploads the full dependency graph to GitHub (Dependabot)
       - name: Update dependency graph
         uses: advanced-security/maven-dependency-submission-action@571e99aab1055c2e71a1e2309b9691de18d6b7d6
 
@@ -37,13 +43,13 @@ jobs:
           name: test-logs
           path: logs/
 
-      - name: Upload Screenshots as artifacts
+      - name: Upload screenshots
         if: always()
         uses: actions/upload-artifact@v5
         with:
           name: screenshots
           path: screenshots/
-          
+
       - name: Upload test report
         if: always()
         uses: actions/upload-artifact@v5
@@ -55,8 +61,17 @@ jobs:
         if: always()
         run: |
           mkdir -p public/extent-reports/
-          cp -R results/extent-report.htm public/extent-reports/
-          cp -R screenshots/ public/extent-reports/screenshots
+          # copy the generated report and screenshots if they exist
+          if [ -f "results/extent-report.htm" ]; then
+            cp results/extent-report.htm public/extent-reports/
+          else
+            echo "No results/extent-report.htm found"
+          fi
+          if [ -d "screenshots" ]; then
+            cp -R screenshots public/extent-reports/screenshots
+          else
+            echo "No screenshots directory found"
+          fi
 
       - name: Upload copied report artifact
         if: always()
@@ -65,12 +80,13 @@ jobs:
           name: gh-pages-report
           path: public/extent-reports/
 
-      - name: Deploy
+      - name: Deploy to gh-pages
         if: always()
         uses: JamesIves/github-pages-deploy-action@v4.7.3
         with:
           folder: public/extent-reports/
-          token: ${{ secrets.PAT1 }}
+          branch: gh-pages            # explicitly target gh-pages branch
+          token: ${{ secrets.GITHUB_TOKEN }}  # or your PAT: ${{ secrets.PAT }}
           clean: true
 
       - name: Test execution status
