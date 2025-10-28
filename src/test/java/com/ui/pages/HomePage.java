@@ -1,27 +1,41 @@
 package com.ui.pages;
 
+import static com.constants.Env.QA;
+
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
 import com.constants.Browser;
-import static com.constants.Env.*;
 import com.utility.BrowserUtility;
 import com.utility.JsonUtility;
 import com.utility.loggerUtility;
 
-public class HomePage extends BrowserUtility{
+
+public final class HomePage extends BrowserUtility {
 	Logger logger = loggerUtility.getLogger(this.getClass());
-	BrowserUtility browserUtility;
-	public HomePage(Browser browserName) {
-		super(browserName);
+
+	private static final By SIGN_IN_LINK_LOCATOR = By.xpath("//a[contains(text(),\"Sign\")]");
+
+	public HomePage(Browser browser, boolean isHeadless) {
+		super(browser, isHeadless); // To Call the Parent Class constructor from the child constructor
 		goToWebSite(JsonUtility.readJson(QA).getUrl());
-		
 	}
 
-	private static final By SIGN_IN_LOCATOR = By.className("login");
-	public LoginPage goToLoginPage() {
-		logger.info("clicking on sign in button");
-	browserUtility.clickOn(SIGN_IN_LOCATOR);
-	LoginPage loginpage = new LoginPage(getDriver());
-	return loginpage;
+	public HomePage(WebDriver driver) {
+		super(driver); // To Call the Parent Class constructor from the child constructor
+		goToWebSite(JsonUtility.readJson(QA).getUrl());
+	}
+
+	public LoginPage goToLoginPage() { // Page Functions------> cannot use void!!!
+		logger.info("Trying to performing click to go to Sign in Page");
+		clickOn(SIGN_IN_LINK_LOCATOR);
+		LoginPage loginPage = new LoginPage(getDriver());
+		return loginPage;
+	}
+
+	public void quit() {
+		// TODO Auto-generated method stub
+		
 	}
 }

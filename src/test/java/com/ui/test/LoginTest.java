@@ -7,47 +7,40 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.ui.listeners.TestListener;
-import com.ui.pages.HomePage;
 import com.ui.pojo.User;
 import com.utility.loggerUtility;
 
 @Listeners({ TestListener.class })
-public class LoginTest extends TestBase{
+public class LoginTest extends TestBase {
 
-	HomePage homepage;
-	Logger logger = loggerUtility.getLogger(this.getClass());
+    // removed local HomePage homepage;    <-- IMPORTANT
 
-	
+    Logger logger = loggerUtility.getLogger(this.getClass());
 
-	@Test(description = "verifies with the valid user is able to login into the application", groups = { "e2e",
-			"sanity" }, dataProviderClass = com.dataproviders.LoginDataProvider.class, dataProvider = "LoginTestDataProvider")
-	public void loginTest(User user) {
+    @Test(description = "verifies with the valid user is able to login into the application", groups = { "e2e",
+            "sanity" }, dataProviderClass = com.dataproviders.LoginDataProvider.class, dataProvider = "LoginTestDataProvider")
+    public void loginTest(User user) {
+        String userName = homePage.goToLoginPage().doLoginWith(user.getEmailAddress(), user.getPassword())
+                .getUserName();
+        System.out.println(userName);
+        assertEquals(userName, "Test automation");
+    }
 
-		String userName = homepage.goToLoginPage().doLoginWith(user.getEmailAddress(), user.getPassword())
-				.getUserName();
+    @Test(description = "verifies with the valid user is able to login into the application", groups = { "e2e",
+            "sanity" }, dataProviderClass = com.dataproviders.LoginDataProvider.class, dataProvider = "LoginTestCSVDataProvider")
+    public void loginCSVTest(User user) {
+        String userName = homePage.goToLoginPage().doLoginWith(user.getEmailAddress(), user.getPassword())
+                .getUserName();
+        System.out.println(userName);
+        assertEquals(userName, "Test automation");
+    }
 
-		System.out.println(userName);
-		assertEquals(userName, "Test automation");
-	}
-
-	@Test(description = "verifies with the valid user is able to login into the application", groups = { "e2e",
-			"sanity" }, dataProviderClass = com.dataproviders.LoginDataProvider.class, dataProvider = "LoginTestCSVDataProvider")
-	public void loginCSVTest(User user) {
-
-		String userName = homepage.goToLoginPage().doLoginWith(user.getEmailAddress(), user.getPassword())
-				.getUserName();
-
-		System.out.println(userName);
-		assertEquals(userName, "Test automation");
-	}
-
-	@Test(description = "verifies with the valid user is able to login into the application", groups = { "e2e",
-			"sanity" }, dataProviderClass = com.dataproviders.LoginDataProvider.class, dataProvider = "LoginTestExcelDataProvider")
-	public void loginExcelTest(User user) {
-		String userName = homepage.goToLoginPage().doLoginWith(user.getEmailAddress(), user.getPassword())
-				.getUserName();
-		System.out.println(userName);
-		assertEquals(userName, "Test automation");
-
-	}
+    @Test(description = "verifies with the valid user is able to login into the application", groups = { "e2e",
+            "sanity" }, dataProviderClass = com.dataproviders.LoginDataProvider.class, dataProvider = "LoginTestExcelDataProvider")
+    public void loginExcelTest(User user) {
+        String userName = homePage.goToLoginPage().doLoginWith(user.getEmailAddress(), user.getPassword())
+                .getUserName();
+        System.out.println(userName);
+        assertEquals(userName, "Test automation");
+    }
 }
