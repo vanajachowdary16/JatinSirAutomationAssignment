@@ -8,7 +8,9 @@ import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 
 import com.constants.Browser;
 
@@ -34,27 +36,77 @@ public abstract class BrowserUtility {
         super();
         this.driver.set(driver);// Initialize the ThreadLocal value
     }
+	public BrowserUtility(String browserName){
+		if (browserName.equalsIgnoreCase("chrome")) {
+			driver.set(new ChromeDriver());
+		}
+		else if (browserName.equalsIgnoreCase("edge")) {
+			driver.set(new EdgeDriver());
+			
+		}
+		else {
+            System.err.println("Invalid browser name .... please select chrome or edge only");
+        }
+
+	}
+
 
     // Constructor that initializes by browser name
-    public BrowserUtility(String browserName) {
+    public BrowserUtility(String browserName, boolean isHeadless) {
         logger.info("initializing the browser: " + browserName);
         if (browserName.equalsIgnoreCase("chrome")) {
+			if(isHeadless){
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("--headless=new");
+			options.addArguments("--window-size=1920,1080");
             logger.info("initializing the chrome browser");
-            driver.set(new ChromeDriver());
+            driver.set(new ChromeDriver(options));
+			}
+			else{
+				driver.set(new ChromeDriver());
+			}
         } else if (browserName.equalsIgnoreCase("edge")) {
+			if(isHeadless){
+				EdgeOptions options = new EdgeOptions();
+				options.addArguments("--headless=old");
+				options.addArguments("disable-gpu");
+			    options.addArguments("--window-size=1920,1080");
             logger.info("initializing the edge browser");
-			driver.set(new EdgeDriver());
+			driver.set(new EdgeDriver(options));
+			}
+			else{
+				driver.set(new EdgeDriver());
+			}
         } else {
             System.err.println("Invalid browser name .... please select chrome or edge only");
         }
     }
-
+   
     // enum-based constructor
-    public BrowserUtility(Browser browserName) {
+    public BrowserUtility(Browser browserName, boolean isHeadless) {
         if (browserName == Browser.CHROME) {
-            driver.set(new ChromeDriver());
+			if(isHeadless){
+				ChromeOptions options = new ChromeOptions();
+				options.addArguments("--headless=new");
+				options.addArguments("--window-size=1920,1080");
+				logger.info("initializing the chrome browser");
+				driver.set(new ChromeDriver(options));
+				}
+				else{
+					driver.set(new ChromeDriver());
+				}
         } else if (browserName == Browser.EDGE) {
-            driver.set(new EdgeDriver());
+			if(isHeadless){
+				EdgeOptions options = new EdgeOptions();
+				options.addArguments("--headless=old");
+				options.addArguments("disable-gpu");
+			    options.addArguments("--window-size=1920,1080");
+            logger.info("initializing the edge browser");
+			driver.set(new EdgeDriver(options));
+			}
+			else{
+				driver.set(new EdgeDriver());
+			}
         } else {
             System.err.println("Invalid browser name .... please select chrome or edge only");
         }
