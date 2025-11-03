@@ -1,15 +1,16 @@
-2025-10-28 19:18:25 [main] INFO  com.ui.listeners.TestListener::onStart::29 - test suite started
-2025-10-28 19:18:27 [TestNG-test=ui-automation-1] INFO  com.ui.test.LoginTest::setup::37 - Load the Homepage of the website
-2025-10-28 19:18:27 [TestNG-test=ui-automation-1] INFO  com.utility.BrowserUtility::<init>::92 - initializing the chrome browser
-2025-10-28 19:18:30 [TestNG-test=ui-automation-1] INFO  com.utility.BrowserUtility::goToWebSite::116 - navigating to the website: http://www.automationpractice.pl/index.php
-2025-10-28 19:18:35 [TestNG-test=ui-automation-1] INFO  com.ui.listeners.TestListener::onTestStart::35 - loginExcelTest
-2025-10-28 19:18:35 [TestNG-test=ui-automation-1] INFO  com.ui.listeners.TestListener::onTestStart::36 - verifies with the valid user is able to login into the application
-2025-10-28 19:18:35 [TestNG-test=ui-automation-1] INFO  com.ui.listeners.TestListener::onTestStart::37 - [e2e, sanity]
-2025-10-28 19:18:35 [TestNG-test=ui-automation-1] INFO  com.ui.pages.HomePage::goToLoginPage::31 - Trying to performing click to go to Sign in Page
-2025-10-28 19:18:35 [TestNG-test=ui-automation-1] INFO  com.utility.BrowserUtility::clickOn::126 - clicking on the element: By.xpath: //a[contains(text(),"Sign")]
-2025-10-28 19:18:36 [TestNG-test=ui-automation-1] INFO  com.utility.BrowserUtility::enterText::132 - entering text: xidic56063@aupvs.com into the element: By.id: email
-2025-10-28 19:18:36 [TestNG-test=ui-automation-1] INFO  com.utility.BrowserUtility::enterText::132 - entering text: Test@123 into the element: By.id: passwd
-2025-10-28 19:18:36 [TestNG-test=ui-automation-1] INFO  com.utility.BrowserUtility::clickOn::126 - clicking on the element: By.id: SubmitLogin
-2025-10-28 19:18:38 [TestNG-test=ui-automation-1] INFO  com.utility.BrowserUtility::getVisibleText::138 - getting the visible text from the element: By.xpath: //a[@title='View my customer account']/span
-2025-10-28 19:18:38 [TestNG-test=ui-automation-1] INFO  com.ui.listeners.TestListener::onTestSuccess::44 - loginExcelTest passed
-2025-10-28 19:18:38 [main] INFO  com.ui.listeners.TestListener::onFinish::70 - test suite completed
+2025-11-02 15:56:04 [main] INFO  com.ui.listeners.TestListener::onStart::29 - test suite started
+2025-11-02 15:56:04 [main] INFO  com.ui.test.InvalidCredsLoginTest::setup::37 - Load the Homepage of the website
+2025-11-02 15:56:04 [main] INFO  com.utility.BrowserUtility::<init>::95 - initializing the chrome browser
+2025-11-02 15:56:06 [main] INFO  com.utility.BrowserUtility::goToWebSite::119 - navigating to the website: http://www.automationpractice.pl/index.php
+2025-11-02 15:56:12 [main] INFO  com.ui.listeners.TestListener::onTestStart::35 - loginTest
+2025-11-02 15:56:12 [main] INFO  com.ui.listeners.TestListener::onTestStart::36 - verify if the proper error message is shown for the user when they enter invalid credentials
+2025-11-02 15:56:12 [main] INFO  com.ui.listeners.TestListener::onTestStart::37 - [e2e, sanity]
+2025-11-02 15:56:12 [main] INFO  com.ui.pages.HomePage::goToLoginPage::31 - Trying to performing click to go to Sign in Page
+2025-11-02 15:56:12 [main] INFO  com.utility.BrowserUtility::clickOn::129 - clicking on the element: By.xpath: //a[contains(text(),"Sign")]
+2025-11-02 15:56:13 [main] INFO  com.utility.BrowserUtility::enterText::135 - entering text: testautomation123@email.com into the element: By.id: email
+2025-11-02 15:56:13 [main] INFO  com.utility.BrowserUtility::enterText::135 - entering text: testautomation123 into the element: By.id: passwd
+2025-11-02 15:56:13 [main] INFO  com.utility.BrowserUtility::clickOn::129 - clicking on the element: By.id: SubmitLogin
+2025-11-02 15:56:13 [main] INFO  com.utility.BrowserUtility::getVisibleText::141 - Getting the visible text from the element: By.xpath: //div[contains(@class,'alert-danger')]/ol/li
+2025-11-02 15:56:14 [main] INFO  com.utility.BrowserUtility::getVisibleText::162 - Visible text retrieved: [Authentication failed.]
+2025-11-02 15:56:14 [main] INFO  com.ui.listeners.TestListener::onTestSuccess::44 - loginTest passed
+2025-11-02 15:56:14 [main] INFO  com.ui.listeners.TestListener::onFinish::70 - test suite completed
