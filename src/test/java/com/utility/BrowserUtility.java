@@ -2,6 +2,7 @@ package com.utility;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
@@ -11,6 +12,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.constants.Browser;
 
@@ -135,10 +138,31 @@ public abstract class BrowserUtility {
     }
 
     public String getVisibleText(By locator) {
-        logger.info("getting the visible text from the element: " + locator);
-        WebElement element =  driver.get().findElement(locator);
-        return element.getText();
+        logger.info("Getting the visible text from the element: " + locator);
+        WebDriver webDriver = driver.get();
+
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
+
+        // Wait until the element is visible and contains non-empty text
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+
+        WebElement element = webDriver.findElement(locator);
+
+        String text = element.getText();
+
+        // If the element text is empty, try alternative attributes (innerText/textContent)
+        if (text == null || text.trim().isEmpty()) {
+            text = element.getAttribute("innerText");
+            if (text == null || text.trim().isEmpty()) {
+                text = element.getAttribute("textContent");
+            }
+        }
+
+        text = text == null ? "" : text.trim();
+        logger.info("Visible text retrieved: [" + text + "]");
+        return text;
     }
+
 
     public String takeScreenshot(String name) { 
 		
