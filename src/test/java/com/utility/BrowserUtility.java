@@ -3,7 +3,9 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.Logger;
@@ -136,6 +138,13 @@ public abstract class BrowserUtility {
         WebElement element = driver.get().findElement(locator);
         element.sendKeys(text);
     }
+    
+    public void enterSpecialKey(By locator,  Keys keyToEnter) {
+        logger.info("entering text into the element: " + locator);
+        WebElement element = driver.get().findElement(locator);
+        logger.info("element found and now enter special key"+keyToEnter);
+        element.sendKeys(keyToEnter);
+    }
 
     public String getVisibleText(By locator) {
         logger.info("Getting the visible text from the element: " + locator);
@@ -161,6 +170,33 @@ public abstract class BrowserUtility {
         text = text == null ? "" : text.trim();
         logger.info("Visible text retrieved: [" + text + "]");
         return text;
+    }
+    
+    public String getVisibleText(WebElement element) {
+    	
+    	  logger.info("Visible text retrieved: "+element.getText());
+		return element.getText();
+    	
+    }
+    
+    public List<String> getAllVisibleText(By locator) {
+    	  logger.info("find all the elements with the locator" +locator);
+        WebDriver webDriver = driver.get();
+
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
+
+        // Wait until the element is visible and contains non-empty text
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+
+       List <WebElement> elementList = webDriver.findElements(locator);
+       logger.info("elements found and now printing the lsit of elements");
+       
+       List<String> visibleTextList= new ArrayList<>();
+       for(WebElement element : elementList) {
+    	 System.out.println(getVisibleText(element));
+    	 visibleTextList.add(getVisibleText(element));
+       }
+       return visibleTextList;
     }
 
 
