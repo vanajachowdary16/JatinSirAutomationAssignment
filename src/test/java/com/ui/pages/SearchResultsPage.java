@@ -1,5 +1,9 @@
 package com.ui.pages;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.jar.Attributes.Name;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -18,9 +22,14 @@ public class SearchResultsPage extends BrowserUtility{
 	public String getsearchResultTitle() {
 		return getVisibleText(PRODUCT_LISTING_TITLE_LOCATOR);
 	}
-	public void getAllProductsNames() {
-		getAllVisibleText(ALL_PRODUCTS_LISTS_NAME);
+	public boolean isSearchTermPresentinProductsList(String searchTerm) {
 		
+		List<String> keyWords = Arrays.asList(searchTerm.toLowerCase().split(" "));
+		List<String> productNamesList =getAllVisibleText(ALL_PRODUCTS_LISTS_NAME);
+		
+		boolean result =productNamesList.stream().anyMatch(name ->(keyWords.stream().anyMatch(name.toLowerCase()::contains)));
+		
+		return result;
 	}
 
 }
