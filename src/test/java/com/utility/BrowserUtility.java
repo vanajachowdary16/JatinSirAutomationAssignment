@@ -15,6 +15,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.constants.Browser;
@@ -134,9 +135,27 @@ public abstract class BrowserUtility {
     }
 
     public void enterText(By locator, String text) {
-        logger.info("entering text: " + text + " into the element: " + locator);
+    	logger.info("finding element with the locator" +locator);
+        
         WebElement element = driver.get().findElement(locator);
+        logger.info("entering text: " + text + " into the element: " + locator);
         element.sendKeys(text);
+    }
+    
+    public void clearText(By locator) {
+    	logger.info("finding element with the locator" +locator);
+        
+        WebElement element = driver.get().findElement(locator);
+        logger.info("clear the text box field: " + locator);
+        element.clear();
+    }
+    public void selectFromDropDown(By dropDownLocator, String optionToSelect) {
+    	logger.info("finding element with the locator" +dropDownLocator);
+    	WebElement element = driver.get().findElement(dropDownLocator);
+    	Select select = new Select(element);
+    	logger.info("Selecting the option "+optionToSelect);
+    	select.selectByVisibleText(optionToSelect);
+    	
     }
     
     public void enterSpecialKey(By locator,  Keys keyToEnter) {
