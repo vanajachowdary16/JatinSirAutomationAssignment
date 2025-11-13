@@ -133,6 +133,11 @@ public abstract class BrowserUtility {
         WebElement element =  driver.get().findElement(locator);
         element.click();
     }
+    public void clickOn(WebElement element) {
+        logger.info("clicking on the element: " +element);
+       
+        element.click();
+    }
 
     public void enterText(By locator, String text) {
     	logger.info("finding element with the locator" +locator);
@@ -217,6 +222,22 @@ public abstract class BrowserUtility {
        }
        return visibleTextList;
     }
+    
+    public List<WebElement> getAllElements(By locator) {
+  	  logger.info("find all the elements with the locator" +locator);
+      WebDriver webDriver = driver.get();
+
+      WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
+
+      // Wait until the element is visible and contains non-empty text
+      wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+
+     List <WebElement> elementList = webDriver.findElements(locator);
+     logger.info("elements found and now printing the lsit of elements");
+     
+    return elementList;
+    
+  }
 
 
     public String takeScreenshot(String name) { 
