@@ -16,7 +16,8 @@ Hi my name is vanaja, i have 4 years of experience as a software test enginner.
 
 My expertise includes selenium webdriver, java programming language, testNg, page object model, data driven, api testing with postman
 ## 🔗 Links
-[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)]https://github.com/vanajachowdary16)
+[portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)]
+(https://github.com/vanajachowdary16)
 
 
 
@@ -67,3 +68,4 @@ mvn clean install
 ```bash
 src/main/resources/config.properties
 ```
+
