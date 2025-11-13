@@ -31,5 +31,12 @@ public class SearchResultsPage extends BrowserUtility{
 		
 		return result;
 	}
+	
+	public ProductDetailPage clickOntheProductAtIndex(int index) {
+		clickOn(getAllElements(ALL_PRODUCTS_LISTS_NAME).get(index));
+		ProductDetailPage productDetailPage = new ProductDetailPage(getDriver());
+		return productDetailPage;
+		
+	}
 
 }
