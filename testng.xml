@@ -9,6 +9,10 @@
     <parameter name="isHeadless" value="${isHeadless}"/>
     <classes>
       <class name="com.ui.test.LoginTest"/>
+      <class name="com.ui.test.InvalidCredsLoginTest"/>
+      <class name="com.ui.test.AddNewFirstAddressTest"/>
+      <class name="com.ui.test.ProductCheckoutTest"/>
+      <class name="com.ui.test.SearchProductTest"/>
     </classes>
   </test>
 

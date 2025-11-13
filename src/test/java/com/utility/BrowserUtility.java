@@ -1,4 +1,5 @@
 package com.utility;
+
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -20,239 +21,256 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.constants.Browser;
 
-
 public abstract class BrowserUtility {
-    // ThreadLocal to support parallel threads
-    private ThreadLocal<WebDriver> driver = new ThreadLocal<>();
-     Logger logger = loggerUtility.getLogger(BrowserUtility.class);
+	// ThreadLocal to support parallel threads
+	private ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+	private Logger logger = loggerUtility.getLogger(BrowserUtility.class);
+	private WebDriverWait wait;
 
-    // Return the actual WebDriver for the current thread
-    public WebDriver getDriver() {
+	// Return the actual WebDriver for the current thread
+	public WebDriver getDriver() {
         return driver.get();
     }
 
-    // Set the actual WebDriver for the current thread
-    @SuppressWarnings("unchecked")
+	// Set the actual WebDriver for the current thread
+	@SuppressWarnings("unchecked")
 	public void setDriver(WebDriver driver) {
-        ((ThreadLocal<WebDriver>) driver).set(driver);
-    }
+		((ThreadLocal<WebDriver>) driver).set(driver);
+	}
 
-    // Constructor when a WebDriver instance is provided
-    public BrowserUtility(WebDriver driver) {
-        super();
-        this.driver.set(driver);// Initialize the ThreadLocal value
-    }
-	public BrowserUtility(String browserName){
+	// Constructor when a WebDriver instance is provided
+	public BrowserUtility(WebDriver driver) {
+		super();
+		this.driver.set(driver);// Initialize the ThreadLocal value
+		wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+	}
+
+	public BrowserUtility(String browserName) {
 		if (browserName.equalsIgnoreCase("chrome")) {
 			driver.set(new ChromeDriver());
-		}
-		else if (browserName.equalsIgnoreCase("edge")) {
+			wait = new WebDriverWait(driver.get(), Duration.ofSeconds(15));
+		} else if (browserName.equalsIgnoreCase("edge")) {
 			driver.set(new EdgeDriver());
-			
+			wait = new WebDriverWait(driver.get(), Duration.ofSeconds(15));
+
+		} else {
+			System.err.println("Invalid browser name .... please select chrome or edge only");
 		}
-		else {
-            System.err.println("Invalid browser name .... please select chrome or edge only");
-        }
 
 	}
 
-
-    // Constructor that initializes by browser name
-    public BrowserUtility(String browserName, boolean isHeadless) {
-        logger.info("initializing the browser: " + browserName);
-        if (browserName.equalsIgnoreCase("chrome")) {
-			if(isHeadless){
-			ChromeOptions options = new ChromeOptions();
-			options.addArguments("--headless=new");
-			options.addArguments("--window-size=1920,1080");
-            logger.info("initializing the chrome browser");
-            driver.set(new ChromeDriver(options));
-			}
-			else{
-				driver.set(new ChromeDriver());
-			}
-        } else if (browserName.equalsIgnoreCase("edge")) {
-			if(isHeadless){
-				EdgeOptions options = new EdgeOptions();
-				options.addArguments("--headless=old");
-				options.addArguments("disable-gpu");
-			    options.addArguments("--window-size=1920,1080");
-            logger.info("initializing the edge browser");
-			driver.set(new EdgeDriver(options));
-			}
-			else{
-				driver.set(new EdgeDriver());
-			}
-        } else {
-            System.err.println("Invalid browser name .... please select chrome or edge only");
-        }
-    }
-   
-    // enum-based constructor
-    public BrowserUtility(Browser browserName, boolean isHeadless) {
-        if (browserName == Browser.CHROME) {
-			if(isHeadless){
+	// Constructor that initializes by browser name
+	public BrowserUtility(String browserName, boolean isHeadless) {
+		logger.info("initializing the browser: " + browserName);
+		if (browserName.equalsIgnoreCase("chrome")) {
+			if (isHeadless) {
 				ChromeOptions options = new ChromeOptions();
 				options.addArguments("--headless=new");
 				options.addArguments("--window-size=1920,1080");
 				logger.info("initializing the chrome browser");
 				driver.set(new ChromeDriver(options));
-				}
-				else{
-					driver.set(new ChromeDriver());
-				}
-        } else if (browserName == Browser.EDGE) {
-			if(isHeadless){
+				wait = new WebDriverWait(driver.get(), Duration.ofSeconds(15));
+			} else {
+				driver.set(new ChromeDriver());
+				wait = new WebDriverWait(driver.get(), Duration.ofSeconds(15));
+			}
+		} else if (browserName.equalsIgnoreCase("edge")) {
+			if (isHeadless) {
 				EdgeOptions options = new EdgeOptions();
 				options.addArguments("--headless=old");
 				options.addArguments("disable-gpu");
-			    options.addArguments("--window-size=1920,1080");
-            logger.info("initializing the edge browser");
-			driver.set(new EdgeDriver(options));
-			}
-			else{
+				options.addArguments("--window-size=1920,1080");
+				logger.info("initializing the edge browser");
+				driver.set(new EdgeDriver(options));
+				wait = new WebDriverWait(driver.get(), Duration.ofSeconds(15));
+			} else {
 				driver.set(new EdgeDriver());
+				wait = new WebDriverWait(driver.get(), Duration.ofSeconds(15));
 			}
-        } else {
-            System.err.println("Invalid browser name .... please select chrome or edge only");
-        }
-    }
+		} else {
+			System.err.println("Invalid browser name .... please select chrome or edge only");
+		}
+	}
 
-    public void goToWebSite(String url) {
-        logger.info("navigating to the website: " + url);
-        driver.get().get(url);
-    }
+	// enum-based constructor
+	public BrowserUtility(Browser browserName, boolean isHeadless) {
+		if (browserName == Browser.CHROME) {
+			if (isHeadless) {
+				ChromeOptions options = new ChromeOptions();
+				options.addArguments("--headless=new");
+				options.addArguments("--window-size=1920,1080");
+				logger.info("initializing the chrome browser");
+				driver.set(new ChromeDriver(options));
+				wait = new WebDriverWait(driver.get(), Duration.ofSeconds(15));
+			} else {
+				driver.set(new ChromeDriver());
+				wait = new WebDriverWait(driver.get(), Duration.ofSeconds(15));
+			}
+		} else if (browserName == Browser.EDGE) {
+			if (isHeadless) {
+				EdgeOptions options = new EdgeOptions();
+				options.addArguments("--headless=old");
+				options.addArguments("disable-gpu");
+				options.addArguments("--window-size=1920,1080");
+				logger.info("initializing the edge browser");
+				driver.set(new EdgeDriver(options));
+				wait = new WebDriverWait(driver.get(), Duration.ofSeconds(15));
+			} else {
+				driver.set(new EdgeDriver());
+				wait = new WebDriverWait(driver.get(), Duration.ofSeconds(15));
+			}
+		} else {
+			System.err.println("Invalid browser name .... please select chrome or edge only");
+		}
+	}
 
-    public void maximizeWindow() {
-        logger.info("maximizing the window");
+	public void goToWebSite(String url) {
+		logger.info("navigating to the website: " + url);
+		driver.get().get(url);
+	}
+
+	public void maximizeWindow() {
+		logger.info("maximizing the window");
 		driver.get().manage().window().maximize();
-    }
+	}
 
-    public void clickOn(By locator) {
-        logger.info("clicking on the element: " + locator);
-        WebElement element =  driver.get().findElement(locator);
-        element.click();
-    }
-    public void clickOn(WebElement element) {
-        logger.info("clicking on the element: " +element);
-       
-        element.click();
-    }
+	public void clickOn(By locator) {
+		logger.info("clicking on the element: " + locator);
+		//WebElement element = driver.get().findElement(locator);
+		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
+		element.click();
+	}
+	public void clickOnCheckBox(By locator) {
+		logger.info("clicking on the element: " + locator);
+		//WebElement element = driver.get().findElement(locator);
+		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+		element.click();
+	}
 
-    public void enterText(By locator, String text) {
-    	logger.info("finding element with the locator" +locator);
-        
-        WebElement element = driver.get().findElement(locator);
-        logger.info("entering text: " + text + " into the element: " + locator);
-        element.sendKeys(text);
-    }
-    
-    public void clearText(By locator) {
-    	logger.info("finding element with the locator" +locator);
-        
-        WebElement element = driver.get().findElement(locator);
-        logger.info("clear the text box field: " + locator);
-        element.clear();
-    }
-    public void selectFromDropDown(By dropDownLocator, String optionToSelect) {
-    	logger.info("finding element with the locator" +dropDownLocator);
-    	WebElement element = driver.get().findElement(dropDownLocator);
-    	Select select = new Select(element);
-    	logger.info("Selecting the option "+optionToSelect);
-    	select.selectByVisibleText(optionToSelect);
-    	
-    }
-    
-    public void enterSpecialKey(By locator,  Keys keyToEnter) {
-        logger.info("entering text into the element: " + locator);
-        WebElement element = driver.get().findElement(locator);
-        logger.info("element found and now enter special key"+keyToEnter);
-        element.sendKeys(keyToEnter);
-    }
+	public void clickOn(WebElement element) {
+		logger.info("clicking on the element: " + element);
+		element.click();
+	}
 
-    public String getVisibleText(By locator) {
-        logger.info("Getting the visible text from the element: " + locator);
-        WebDriver webDriver = driver.get();
+	public void enterText(By locator, String text) {
+		logger.info("finding element with the locator" + locator);
 
-        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
+		//WebElement element = driver.get().findElement(locator);
+		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+		logger.info("entering text: " + text + " into the element: " + locator);
+		element.sendKeys(text);
+	}
 
-        // Wait until the element is visible and contains non-empty text
-        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+	public void clearText(By locator) {
+		logger.info("finding element with the locator" + locator);
 
-        WebElement element = webDriver.findElement(locator);
+		//WebElement element = driver.get().findElement(locator);
+		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+		logger.info("clear the text box field: " + locator);
+		element.clear();
+	}
 
-        String text = element.getText();
+	public void selectFromDropDown(By dropDownLocator, String optionToSelect) {
+		logger.info("finding element with the locator" + dropDownLocator);
+		WebElement element = driver.get().findElement(dropDownLocator);
+		Select select = new Select(element);
+		logger.info("Selecting the option " + optionToSelect);
+		select.selectByVisibleText(optionToSelect);
 
-        // If the element text is empty, try alternative attributes (innerText/textContent)
-        if (text == null || text.trim().isEmpty()) {
-            text = element.getAttribute("innerText");
-            if (text == null || text.trim().isEmpty()) {
-                text = element.getAttribute("textContent");
-            }
-        }
+	}
 
-        text = text == null ? "" : text.trim();
-        logger.info("Visible text retrieved: [" + text + "]");
-        return text;
-    }
-    
-    public String getVisibleText(WebElement element) {
-    	
-    	  logger.info("Visible text retrieved: "+element.getText());
+	public void enterSpecialKey(By locator, Keys keyToEnter) {
+		logger.info("entering text into the element: " + locator);
+		//WebElement element = driver.get().findElement(locator);
+		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+		logger.info("element found and now enter special key" + keyToEnter);
+		element.sendKeys(keyToEnter);
+	}
+
+	public String getVisibleText(By locator) {
+		logger.info("Getting the visible text from the element: " + locator);
+		WebDriver webDriver = driver.get();
+
+		WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
+
+		// Wait until the element is visible and contains non-empty text
+		wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+
+		WebElement element = webDriver.findElement(locator);
+
+		String text = element.getText();
+
+		// If the element text is empty, try alternative attributes
+		// (innerText/textContent)
+		if (text == null || text.trim().isEmpty()) {
+			text = element.getAttribute("innerText");
+			if (text == null || text.trim().isEmpty()) {
+				text = element.getAttribute("textContent");
+			}
+		}
+
+		text = text == null ? "" : text.trim();
+		logger.info("Visible text retrieved: [" + text + "]");
+		return text;
+	}
+
+	public String getVisibleText(WebElement element) {
+
+		logger.info("Visible text retrieved: " + element.getText());
 		return element.getText();
-    	
-    }
-    
-    public List<String> getAllVisibleText(By locator) {
-    	  logger.info("find all the elements with the locator" +locator);
-        WebDriver webDriver = driver.get();
 
-        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
+	}
 
-        // Wait until the element is visible and contains non-empty text
-        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+	public List<String> getAllVisibleText(By locator) {
+		logger.info("find all the elements with the locator" + locator);
+		WebDriver webDriver = driver.get();
 
-       List <WebElement> elementList = webDriver.findElements(locator);
-       logger.info("elements found and now printing the lsit of elements");
-       
-       List<String> visibleTextList= new ArrayList<>();
-       for(WebElement element : elementList) {
-    	 System.out.println(getVisibleText(element));
-    	 visibleTextList.add(getVisibleText(element));
-       }
-       return visibleTextList;
-    }
-    
-    public List<WebElement> getAllElements(By locator) {
-  	  logger.info("find all the elements with the locator" +locator);
-      WebDriver webDriver = driver.get();
+		WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
 
-      WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
+		// Wait until the element is visible and contains non-empty text
+		wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 
-      // Wait until the element is visible and contains non-empty text
-      wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+		List<WebElement> elementList = webDriver.findElements(locator);
+		logger.info("elements found and now printing the lsit of elements");
 
-     List <WebElement> elementList = webDriver.findElements(locator);
-     logger.info("elements found and now printing the lsit of elements");
-     
-    return elementList;
-    
-  }
+		List<String> visibleTextList = new ArrayList<>();
+		for (WebElement element : elementList) {
+			System.out.println(getVisibleText(element));
+			visibleTextList.add(getVisibleText(element));
+		}
+		return visibleTextList;
+	}
 
+	public List<WebElement> getAllElements(By locator) {
+		logger.info("find all the elements with the locator" + locator);
+		WebDriver webDriver = driver.get();
 
-    public String takeScreenshot(String name) { 
-		
-	TakesScreenshot screenshot = (TakesScreenshot) driver.get(); 
+		WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
 
-	Date date= new Date();
-	SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH-mm-ss");
-    String timeStamp=simpleDateFormat.format(date);
-	String filePath="./screenshots/"+name +"-"+ timeStamp+ "png";
-	File screenShotData =screenshot.getScreenshotAs(OutputType.FILE); 
-	File screenshotFile = new File(filePath);
-	 try { FileUtils.copyFile(screenShotData, screenshotFile); 
-	} catch (IOException e) { // TODO Auto-generated catch block e.printStackTrace(); } return filePath; }  
-}
-	 return filePath;
+		// Wait until the element is visible and contains non-empty text
+		wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+
+		List<WebElement> elementList = webDriver.findElements(locator);
+		logger.info("elements found and now printing the lsit of elements");
+
+		return elementList;
+
+	}
+
+	public String takeScreenshot(String name) {
+
+		TakesScreenshot screenshot = (TakesScreenshot) driver.get();
+
+		Date date = new Date();
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH-mm-ss");
+		String timeStamp = simpleDateFormat.format(date);
+		String filePath = "./screenshots/" + name + "-" + timeStamp + "png";
+		File screenShotData = screenshot.getScreenshotAs(OutputType.FILE);
+		File screenshotFile = new File(filePath);
+		try {
+			FileUtils.copyFile(screenShotData, screenshotFile);
+		} catch (IOException e) { // TODO Auto-generated catch block e.printStackTrace(); } return filePath; }
+		}
+		return filePath;
 	}
 }

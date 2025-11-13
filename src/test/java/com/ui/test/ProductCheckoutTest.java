@@ -1,5 +1,6 @@
 package com.ui.test;
 
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -20,8 +21,10 @@ public class ProductCheckoutTest extends TestBase{
 	@Test(description = "verify if the logged in user is able to buy a dress",
 			groups= {"e2e","smoke","sanity","regresstion"})
 	public void checkoutTest() {
-		searchResultsPage.clickOntheProductAtIndex(1).changeSize(L).proceedToCheckout();
+		String result=searchResultsPage.clickOntheProductAtIndex(1).changeSize(L).proceedToCheckout()
+		.goToConfirmAddressPage().goToShippmentPage().goToPaymentPage().makePaymentByWire();
 		
+		Assert.assertTrue(result.contains("complete"));
 	}
 
 }
